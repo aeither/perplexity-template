@@ -1,9 +1,31 @@
-import { Button } from "@/components/ui/button";
+"use client";
 
-export default function Home() {
+import { Button } from "@/components/ui/button";
+import { useChat } from "ai/react";
+
+export default function Chat() {
+  const { messages, input, handleInputChange, handleSubmit } = useChat();
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Button>Click me</Button>
-    </main>
+    <div className="mx-auto w-full max-w-md py-24 flex flex-col stretch">
+      {messages.map((m) => (
+        <div key={m.id}>
+          {m.role === "user" ? "User: " : "AI: "}
+          {m.content}
+        </div>
+      ))}
+
+      <form onSubmit={handleSubmit}>
+        <label>
+          Say something...
+          <input
+            className="fixed w-full max-w-md bottom-0 border border-gray-300 rounded mb-8 shadow-xl p-2"
+            value={input}
+            onChange={handleInputChange}
+          />
+        </label>
+        <Button type="submit">Send</Button>
+      </form>
+    </div>
   );
 }
