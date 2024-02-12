@@ -11,9 +11,9 @@ export default function Chat() {
 
   return (
     <div className="mx-auto w-full max-w-md py-4 px-4 sm:px-6 lg:px-8 flex flex-col">
-      <div className="flex flex-row mt-10 items-center gap-2">
+      <div className="flex flex-row mt-10 items-center gap-2 pb-2">
         <AlignLeft className=""></AlignLeft>
-        <h2 className="scroll-m-20 border-b text-2xl font-semibold tracking-tight transition-colors first:mt-0">
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight transition-colors first:mt-0">
           Answer
         </h2>
       </div>
@@ -28,7 +28,7 @@ export default function Chat() {
 
       <form onSubmit={handleSubmit} className="mt-4">
         <div className="flex items-center w-full justify-center">
-          <div className="flex flex-row fixed w-full max-w-md bottom-0 border border-gray-300 rounded shadow-xl p-2 gap-2">
+          <div className="flex flex-row bg-background fixed w-full max-w-md bottom-0 border border-gray-300 rounded shadow-xl p-2 gap-2">
             <Label htmlFor="messageInput" className="sr-only">
               Ask anything...
             </Label>
@@ -39,6 +39,7 @@ export default function Chat() {
               value={input}
               onChange={handleInputChange}
               placeholder="Ask anything..."
+              autoComplete="off"
             />
             <Button type="submit" className="rounded-full flex-1">
               Send
