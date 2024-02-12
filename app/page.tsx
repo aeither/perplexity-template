@@ -28,7 +28,7 @@ export default function Chat() {
 
       <form onSubmit={handleSubmit} className="mt-4">
         <div className="flex items-center w-full justify-center">
-          <div className="flex flex-row fixed inset-x-0 max-w-md bottom-0 border border-gray-300 rounded shadow-xl p-2 gap-2">
+          <div className="flex flex-row fixed w-full max-w-md bottom-0 border border-gray-300 rounded shadow-xl p-2 gap-2">
             <Label htmlFor="messageInput" className="sr-only">
               Ask anything...
             </Label>
