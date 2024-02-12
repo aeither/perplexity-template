@@ -1,12 +1,25 @@
-import "./globals.css";
 import { Inter as FontSans } from "next/font/google";
+import "./globals.css";
 
+import { Metadata, Viewport } from "next";
 import { cn } from "../lib/utils";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
+
+export const metadata: Metadata = {
+  title: "perplexity-template",
+  description: "perplexity-template",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 export default function RootLayout({
   children,
@@ -15,7 +28,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
