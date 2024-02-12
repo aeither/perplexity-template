@@ -1,5 +1,6 @@
 import OpenAI from "openai";
 import { OpenAIStream, StreamingTextResponse } from "ai";
+import { MessageThread } from "@/lib/types";
 
 // Create an OpenAI API client (that's edge friendly!)
 // but configure it to point to perplexity.ai
@@ -13,9 +14,7 @@ export const runtime = "edge";
 
 export async function POST(req: Request) {
   // Extract the `messages` from the body of the request
-  const data = await req.json();
-  console.log("🚀 ~ POST ~ data:", data);
-  const { messages } = data;
+  const { messages } = (await req.json()) as MessageThread;
   // Ask Perplexity for a streaming chat completion using PPLX 70B online model
   // @see https://blog.perplexity.ai/blog/introducing-pplx-online-llms
   const response = await perplexity.chat.completions.create({
